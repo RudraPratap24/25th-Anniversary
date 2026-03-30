@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeev & Kumkum - Silver Anniversary Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@200;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --silver: #E8E8E8;
+            --gold: #D4AF37;
+            --bright-gold: #FFD700;
+            --dark: #0f0f1e;
+            --glassmorphic: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #0f2027 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23D4AF37" opacity="0.6"/><circle cx="16" cy="16" r="12" fill="none" stroke="%23D4AF37" stroke-width="1" opacity="0.4"/></svg>') 16 16, auto;
+        }
+
+        /* ============ PAISLEY PATTERN BACKGROUND ============ */
+        .paisley-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><path d="M50 10 Q60 20 50 30 T50 50 Q40 40 50 30 Z" fill="%23FFD700" opacity="0.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23FFD700" stroke-width="1"/></svg>');
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Deity Elements */
+        .deity {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .ganesha-top {
+            top: 10%;
+            right: 5%;
+            font-size: 8rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .lakshmi-top {
+            top: 15%;
+            left: 5%;
+            font-size: 7rem;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .om-center {
+            top: 50%;
+            right: 10%;
+            font-size: 10rem;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .marigold-line {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .event-title {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            background: linear-gradient(135deg, #bdc3c7, #ffffff, #D4AF37, #bdc3c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle-main {
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            color: #bdc3c7;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .couple-names {
+            font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            margin: 20px 0;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            letter-spacing: 1px;
+        }
+
+        .event-dates {
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            margin: 20px 0;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #D4AF37, #FBF5B7);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============ EVENT DETAILS BENTO ============ */
+        .event-details {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #bdc3c7, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bento-card {
+            background: var(--glassmorphic);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: visible;
+        }
+
+        .bento-card:nth-child(1),
+        .bento-card:nth-child(2) {
+            border: 2px solid #D4AF37;
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .bento-card:nth-child(1):hover,
+        .bento-card:nth-child(2):hover {
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .bento-card::after {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(189, 195, 199, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-10px);
+            background: var(--glassmorphic);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .bento-title {
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .bento-text {
+            color: #bdc3c7;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .event-location {
+            background: rgba(212, 175, 55, 0.15);
+            border-left: 3px solid #D4AF37;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .location-label {
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-address {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .direction-button {
+            display: block;
+            width: 100%;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #D4AF37, #FFE066);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 12px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .direction-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ============ TIMELINE WITH GALLERY ============ */
+        .gallery-section {
+            padding: 80px 40px;
+            background: rgba(212, 175, 55, 0.05);
+            position: relative;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #bdc3c7, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #D4AF37 0%, #bdc3c7 50%, #D4AF37 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 52%;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 52%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #D4AF37, #FBF5B7);
+            border: 4px solid #0f0f1e;
+            border-radius: 50%;
+            z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        .timeline-content {
+            background: var(--glassmorphic);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #D4AF37;
+            transform: scale(1.05);
+        }
+
+        .timeline-year {
+            font-size: 1.3rem;
+            color: #D4AF37;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .timeline-text {
+            color: #bdc3c7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .timeline-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            min-height: auto;
+            width: 100%;
+        }
+
+        .gallery-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+            border: 2px solid #D4AF37;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 1;
+            background-color: rgba(212, 175, 55, 0.2);
+            max-height: 300px;
+        }
+
+        .gallery-img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* ============ COMMENTS SECTION ============ */
+        .comments-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comments-title {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #bdc3c7, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .comments-subtitle {
+            text-align: center;
+            color: #bdc3c7;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        .comments-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comments-form {
+            background: var(--glassmorphic);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .comments-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .comments-feed::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .comments-feed::-webkit-scrollbar-track {
+            background: rgba(189, 195, 199, 0.1);
+            border-radius: 10px;
+        }
+
+        .comments-feed::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #D4AF37;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid #7f8c8d;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .emoji-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .emoji-btn {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #7f8c8d;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .emoji-btn:hover,
+        .emoji-btn.selected {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #D4AF37, #FBF5B7);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .comment-card {
+            background: var(--glassmorphic);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 15px;
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .comment-emoji {
+            font-size: 1.5rem;
+        }
+
+        .comment-name {
+            color: #FFD700;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        .comment-time {
+            color: #999;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        .comment-text {
+            color: #bdc3c7;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #bdc3c7;
+        }
+
+        /* ============ INVITATION CARD GENERATOR ============ */
+        .card-generator-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: var(--glassmorphic);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .gen-form-title {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: #D4AF37;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .form-grid {
+            margin-bottom: 30px;
+        }
+
+        .form-input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: #D4AF37;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .form-input-group input {
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid #7f8c8d;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.4s ease;
+            font-size: 1rem;
+        }
+
+        .form-input-group input::placeholder {
+            color: #999;
+        }
+
+        .form-input-group input:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .btn-generate {
+            flex: 1;
+            padding: 16px 30px;
+            background: linear-gradient(135deg, #D4AF37, #FBF5B7);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-download {
+            flex: 1;
+            padding: 16px 30px;
+            background: linear-gradient(135deg, #bdc3c7, #ffffff);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            display: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 30px rgba(189, 195, 199, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(189, 195, 199, 0.6);
+        }
+
+        .btn-download.show {
+            display: block;
+        }
+
+        .error {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .success {
+            color: #51cf66;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        #preview {
+            margin-top: 50px;
+            text-align: center;
+            display: none;
+        }
+
+        #preview.show {
+            display: block;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #cardCanvas {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #D4AF37;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .preview-label {
+            color: #bdc3c7;
+            margin-top: 20px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1024px) {
+            .comments-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-right: 0;
+                padding-left: 100px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-left: 100px;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .section-title, .gallery-title {
+                font-size: 2rem;
+            }
+
+            .comments-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paisley-bg"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="deity ganesha-top">🐘</div>
+        <div class="deity lakshmi-top">🪷</div>
+        <div class="deity om-center">ॐ</div>
+        <div class="stars" id="starsContainer"></div>
+        
+        <div class="hero-content">
+            <div class="marigold-line">🌼 🌼 🌼</div>
+            <div style="font-size: 1.3rem; color: #D4AF37; margin-bottom: 20px; font-family: Georgia, serif; letter-spacing: 2px;">॥ सहजातं मित्रं च प्रेम बंधनम् ॥</div>
+            <div class="event-title">25th Marriage Anniversary 💕</div>
+            <div class="subtitle-main">Silver Jubilee Celebration</div>
+            <div class="couple-names">Sanjeev Singh & Kumkum Singh</div>
+            <div class="event-dates">
+                📅 14th - 15th April 2026 | 📍 Delhi, India
+            </div>
+            <button class="cta-button" onclick="document.querySelector('.card-generator-section').scrollIntoView({behavior: 'smooth'})">
+                🎁 Get Your Invitation
+            </button>
+            <div class="marigold-line" style="margin-top: 30px;">🌼 🌼 🌼</div>
+        </div>
+    </section>
+
+    <!-- EVENT DETAILS BENTO GRID -->
+    <section class="event-details">
+        <h2 class="section-title">CELEBRATION DETAILS</h2>
+        
+        <div class="bento-grid">
+            <div class="bento-card">
+                <span class="bento-icon">🕯️</span>
+                <div class="bento-title">Day 1: Akhand Ramayan Path</div>
+                <div class="bento-text">14th April 2026 - A sacred spiritual ceremony celebrating 25 years of togetherness with divine blessings and family rituals.</div>
+                
+                <div class="event-location">
+                    <div class="location-label">📍 Location</div>
+                    <div class="location-address"> Rajputana Mansion, 2054/SF Sector 2, Faridabad</div>
+                </div>
+                <button class="direction-button" onclick="openGoogleMaps('Rajputana Mansion, 2054/SF Sector 2, Faridabad')">📍 GET DIRECTIONS</button>
+            </div>
+
+            <div class="bento-card">
+                <span class="bento-icon">🍽️</span>
+                <div class="bento-title">Day 2: Anniversary Gala</div>
+                <div class="bento-text">15th April 2026 - An elegant dinner celebration with cherished ones, music, memories, and heartfelt tributes to everlasting togetherness.</div>
+                
+                <div class="event-location">
+                    <div class="location-label">📍 Location</div>
+                    <div class="location-address">Indian Resort & Restaurant, Faridabad</div>
+                </div>
+                <button class="direction-button" onclick="openGoogleMaps('Indian Resort & Restaurant, Faridabad')">📍 GET DIRECTIONS</button>
+            </div>
+
+            <div class="bento-card">
+                <span class="bento-icon">💝</span>
+                <div class="bento-title">Silver Jubilee</div>
+                <div class="bento-text">Marking 25 glorious years of marriage, commitment, trust, and unconditional marriage blessed by family and friends.</div>
+            </div>
+
+            <div class="bento-card">
+                <span class="bento-icon">👨‍👩‍👧‍👦</span>
+                <div class="bento-title">Family & Friends</div>
+                <div class="bento-text">Join us as we celebrate this sacred milestone with those who matter most and create eternal memories together.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE WITH GALLERY -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">🌟 OUR JOURNEY: 1999-2024 🌟</h2>
+        <div style="text-align: center; color: #D4AF37; font-size: 1.1rem; margin-bottom: 40px; font-family: Georgia, serif;">॥ वयस्य मित्र भज मन प्रेम धी ॥ - प्रेम की यात्रा</div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1999 - The Beginning</div>
+                    <div class="timeline-text">Two souls intertwined in destiny, blessed by the divine, creating the foundation of eternal togetherness and companionship.</div>
+                    <div class="timeline-gallery" id="gallery-1999"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2005 - Milestones & Dreams</div>
+                    <div class="timeline-text">Building a life together with shared aspirations, nurturing hopes for the future, and embracing new chapters with grace.</div>
+                    <div class="timeline-gallery" id="gallery-2005"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2010 - Growing Together</div>
+                    <div class="timeline-text">Creating precious moments, strengthening bonds of affection, and embracing the beauty of family values and togetherness.</div>
+                    <div class="timeline-gallery" id="gallery-2010"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2015 - Blessings Unfolded</div>
+                    <div class="timeline-text">Celebrating life's greatest joys, overcoming challenges with grace, and deepening our sacred commitment to each other.</div>
+                    <div class="timeline-gallery" id="gallery-2015"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020 - Resilience & Marriage</div>
+                    <div class="timeline-text">Standing strong through trials, our marriage became our greatest victory, proving that true togetherness conquers all obstacles.</div>
+                    <div class="timeline-gallery" id="gallery-2020"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024 - Silver Jubilee</div>
+                    <div class="timeline-text">25 Years of Unconditional Marriage, Trust, Sacrifice, and Forever Togetherness - Blessed by the Divine 💝🙏</div>
+                    <div class="timeline-gallery" id="gallery-2024"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVITATION CARD GENERATOR -->
+    <section class="card-generator-section">
+        <div class="form-container">
+            <div style="text-align: center; color: #D4AF37; font-size: 1.2rem; margin-bottom: 25px; font-family: Georgia, serif;">॥ ॐ गं गनपतये नमः ॥</div>
+            <h2 class="gen-form-title">✨ GET YOUR INVITATION ✨</h2>
+
+            <div class="form-grid">
+                <div class="form-input-group">
+                    <label for="guestName">ENTER YOUR FULL NAME</label>
+                    <input 
+                        type="text" 
+                        id="guestName" 
+                        placeholder="Your name..." 
+                        maxlength="50"
+                    >
+                    <div class="error" id="nameError"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-generate" onclick="generateCard()">🎁 GENERATE CARD</button>
+                <button class="btn-download" id="downloadBtn" onclick="downloadCard()">⬇️ DOWNLOAD PNG</button>
+            </div>
+
+            <div id="preview">
+                <canvas id="cardCanvas"></canvas>
+                <p class="preview-label">Your Personalized Invitation Card</p>
+                <p class="success" id="successMsg"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create star field
+        function createStars() {
+            const stars = document.getElementById('starsContainer');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                stars.appendChild(star);
+            }
+        }
+        createStars();
+
+        // ============ INVITATION CARD ============
+        const CARD_WIDTH = 1000;
+        const CARD_HEIGHT = 600;
+
+        function generateCard() {
+            const guestName = document.getElementById('guestName').value.trim();
+            const nameError = document.getElementById('nameError');
+            
+            nameError.textContent = '';
+
+            if (!guestName) {
+                nameError.textContent = '⚠️ Please enter your name';
+                return;
+            }
+
+            const canvas = document.getElementById('cardCanvas');
+            canvas.width = CARD_WIDTH;
+            canvas.height = CARD_HEIGHT;
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const bgGradient = ctx.createLinearGradient(0, 0, CARD_WIDTH, CARD_HEIGHT);
+            bgGradient.addColorStop(0, '#E8E8E8');
+            bgGradient.addColorStop(0.5, '#F5F5F5');
+            bgGradient.addColorStop(1, '#D0D0D0');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, CARD_WIDTH, CARD_HEIGHT);
+
+            // Decorative border
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 8;
+            ctx.strokeRect(15, 15, CARD_WIDTH - 30, CARD_HEIGHT - 30);
+
+            // Inner decorative line
+            ctx.strokeStyle = '#7f8c8d';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(25, 25, CARD_WIDTH - 50, CARD_HEIGHT - 50);
+
+            // Left accent bar
+            const accentGrad = ctx.createLinearGradient(0, 0, 80, CARD_HEIGHT);
+            accentGrad.addColorStop(0, '#D4AF37');
+            accentGrad.addColorStop(0.5, '#FBF5B7');
+            accentGrad.addColorStop(1, '#D4AF37');
+            ctx.fillStyle = accentGrad;
+            ctx.fillRect(0, 0, 80, CARD_HEIGHT);
+
+            // Decorative circles
+            ctx.fillStyle = 'rgba(189, 195, 199, 0.4)';
+            ctx.beginPath();
+            ctx.arc(40, 60, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(40, CARD_HEIGHT - 60, 15, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Main heading
+            ctx.font = 'bold 48px Georgia, serif';
+            ctx.fillStyle = '#D4AF37';
+            ctx.textAlign = 'left';
+            ctx.fillText('YES!! ✨', 120, 80);
+
+            ctx.font = 'bold 40px Georgia, serif';
+            ctx.fillStyle = '#7f8c8d';
+            ctx.fillText('YOU & YOUR FAMILY', 120, 130);
+            ctx.fillText('ARE WARMLY INVITED 🙏', 120, 180);
+
+            // Guest name - SOLID BRIGHT GOLD with shadow
+            // Shadow effect for better visibility
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.font = 'bold 60px Georgia, serif';
+            ctx.textAlign = 'left';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            
+            // Solid bright gold - no gradient
+            ctx.fillStyle = '#FFD700';
+            ctx.font = 'bold 60px Georgia, serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(guestName.toUpperCase(), 120, 280);
+            
+            // Reset shadow
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+
+            // Event title
+            ctx.font = 'bold 18px Georgia, serif';
+            ctx.fillStyle = '#333333';
+            ctx.textAlign = 'left';
+            ctx.fillText('SILVER JUBILEE CELEBRATION', 120, 330);
+            ctx.fillText('25 Years of Marriage & Togetherness', 120, 360);
+
+            // Event details
+            ctx.font = '15px Montserrat, sans-serif';
+            ctx.fillStyle = '#555555';
+            ctx.textAlign = 'left';
+            ctx.fillText('📅 14th - 15th April 2026', 120, 410);
+            ctx.fillText('🕯️ Akhand Paath & Anniversary Gala', 120, 440);
+            ctx.fillText('📍 Delhi, India', 120, 470);
+
+            // Bottom decorative line
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(120, 495);
+            ctx.lineTo(CARD_WIDTH - 150, 495);
+            ctx.stroke();
+
+            // Sanskrit Mantra
+            ctx.font = '14px Georgia, serif';
+            ctx.fillStyle = '#D4AF37';
+            ctx.textAlign = 'center';
+            ctx.fillText('ॐ सह नाववतु | सह नौ भुनक्तु | सह वीर्यं करवावहै', CARD_WIDTH / 2, 515);
+            
+            // Gratitude message
+            ctx.font = 'italic 16px Georgia, serif';
+            ctx.fillStyle = '#7f8c8d';
+            ctx.textAlign = 'center';
+            ctx.fillText('With Blessings & Marriage - Sanjeev & Kumkum 💝🙏', CARD_WIDTH / 2, 550);
+
+            // Show preview and download
+            document.getElementById('preview').classList.add('show');
+            document.getElementById('downloadBtn').classList.add('show');
+            document.getElementById('successMsg').textContent = '✅ Invitation ready! Download as PNG.';
+        }
+
+        function downloadCard() {
+            const canvas = document.getElementById('cardCanvas');
+            const guestName = document.getElementById('guestName').value.trim();
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = `Sanjeev_Kumkum_Silver_Anniversary_${guestName}.png`;
+            link.click();
+        }
+
+        // Enter key handler
+        document.getElementById('guestName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') generateCard();
+        });
+
+        // ============ GOOGLE MAPS NAVIGATION ============
+        function openGoogleMaps(address) {
+            console.log('Opening Google Maps for address:', address);
+            const encodedAddress = encodeURIComponent(address);
+            const isMobile = /Mobile|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+            
+            let mapsUrl;
+            if (isMobile) {
+                // Try to open Google Maps app on mobile
+                mapsUrl = `maps://search/?q=${encodedAddress}`;
+            } else {
+                // Open Google Maps web on desktop
+                mapsUrl = `https://maps.google.com/maps/search/${encodedAddress}`;
+            }
+            
+            window.open(mapsUrl, '_blank');
+        }
+
+        // ============ GOOGLE DRIVE GALLERY INTEGRATION ============
+        // UPDATE: Now using local images from /images/ folder for GitHub Pages hosting
+        // To add your images, create an 'images' folder in your GitHub repository
+        // and upload your photos with names like: 1999-1.jpg, 2005-1.jpg, etc.
+        
+        // Image structure:
+        // repository-name/
+        // ├── index.html (or card.html)
+        // ├── images/
+        // │   ├── 1999-1.jpg
+        // │   ├── 1999-2.jpg
+        // │   ├── 2005-1.jpg
+        // │   ├── 2010-1.jpg
+        // │   ├── 2015-1.jpg
+        // │   ├── 2020-1.jpg
+        // │   └── 2024-1.jpg
+
+        const galleryData = {
+            '1999': [
+                'Anniversary 25/photo 1.jpeg'
+            ],
+            '2005': [
+                'Anniversary 25/photo 2.jpeg'
+            ],
+            '2010': [
+                'Anniversary 25/photo 3.jpeg'
+            ],
+            '2015': [
+                'Anniversary 25/photo 4.jpeg'
+            ],
+            '2020': [
+                'Anniversary 25/photo 5.jpeg'
+            ],
+            '2024': []
+        };
+
+        console.log(galleryData);
+
+        function loadGalleryImages() {
+            Object.keys(galleryData).forEach(year => {
+                const gallery = document.getElementById(`gallery-${year}`);
+                if (galleryData[year].length === 0) {
+                    gallery.innerHTML = '<p style="color: #bdc3c7; text-align: center; font-size: 0.9rem;">🖼️ Images coming soon</p>';
+                } else {
+                    gallery.innerHTML = galleryData[year].map(url => 
+                        `<img src="${url}" class="gallery-img" alt="Memory" crossorigin="anonymous">`
+                    ).join('');
+                }
+            });
+        }
+
+        loadGalleryImages();
+
+    </script>
+</body>
+</html>
