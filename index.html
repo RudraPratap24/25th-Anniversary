@@ -350,8 +350,50 @@ nav a:hover::after { opacity: 1; }
 
 .hero-cta {
   margin-top: 36px;
-  display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 18px; justify-content: center; align-items: flex-start; flex-wrap: wrap;
   opacity: 0; animation: fadeUp 1s 1.4s ease forwards;
+}
+.invitation-target {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.invitation-doodle-under {
+  margin-top: 3px;
+  margin-right: -8px;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 4px;
+  opacity: 0;
+  animation: fadeUp 0.9s 1.45s ease forwards;
+  pointer-events: none;
+}
+.invitation-doodle-arrow {
+  width: 58px;
+  height: 28px;
+  display: block;
+  transform-origin: 90% 20%;
+  animation: invitationArrowWiggle 1.25s 2s ease-in-out infinite;
+}
+.invitation-doodle-arrow path {
+  fill: none;
+  stroke: rgba(241,195,90,0.76);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(241,195,90,0.22));
+  animation: invitationArrowGlow 1.25s 2s ease-in-out infinite;
+}
+.invitation-doodle-text {
+  margin-top: 0;
+  text-align: center;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(0.64rem, 1.6vw, 0.78rem);
+  letter-spacing: 1.1px;
+  text-transform: lowercase;
+  color: rgba(245,225,180,0.78);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.33);
 }
 .btn-primary, .btn-secondary {
   padding: 14px 36px;
@@ -378,9 +420,38 @@ nav a:hover::after { opacity: 1; }
   box-shadow: 0 8px 20px rgba(201,146,42,0.2);
 }
 
+.btn-invitation {
+  background: linear-gradient(135deg, #F1C35A 0%, #D9A441 48%, #B97C1F 100%);
+  color: #3A1900;
+  border: 1px solid #F7D889;
+  box-shadow: 0 10px 28px rgba(201,146,42,0.55), 0 0 24px rgba(241,195,90,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.btn-invitation:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #F7D67A 0%, #E3B24A 50%, #C98928 100%);
+  box-shadow: 0 14px 34px rgba(201,146,42,0.65), 0 0 32px rgba(241,195,90,0.6), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes invitationArrowWiggle {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  35% { transform: rotate(-5deg) translateY(-1px); }
+  65% { transform: rotate(4deg) translateY(1px); }
+}
+
+@keyframes invitationArrowGlow {
+  0%, 100% {
+    stroke: rgba(241,195,90,0.72);
+    filter: drop-shadow(0 0 4px rgba(241,195,90,0.2));
+  }
+  50% {
+    stroke: rgba(247,214,122,0.98);
+    filter: drop-shadow(0 0 9px rgba(241,195,90,0.52));
+  }
 }
 
 /* Marigold garland top */
@@ -786,6 +857,19 @@ footer {
   .gen-card { padding: 30px 24px; }
   .gen-actions { flex-direction: column; }
   .section-wrap { padding: 70px 20px; }
+  .invitation-doodle-under {
+    margin-top: 2px;
+    margin-right: -4px;
+    gap: 3px;
+  }
+  .invitation-doodle-arrow {
+    width: 48px;
+    height: 24px;
+  }
+  .invitation-doodle-text {
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+  }
 }
 </style>
 </head>
@@ -866,7 +950,16 @@ footer {
     </p>
     <div class="hero-cta">
       <a href="#events" class="btn-primary">✦ Celebration Details</a>
-      <a href="#invitation" class="btn-secondary">✦ Get Invitation</a>
+      <div class="invitation-target">
+        <a href="#invitation" class="btn-secondary btn-invitation">✦ Get Invitation</a>
+        <div class="invitation-doodle-under" aria-hidden="true">
+          <div class="invitation-doodle-text">get your invitation here</div>
+          <svg class="invitation-doodle-arrow" viewBox="0 0 58 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M2 22 C16 24, 30 18, 40 10 C45 6, 49 4, 52 3"/>
+            <path d="M45 2 L52 3 L48 10"/>
+          </svg>
+        </div>
+      </div>
     </div>
     <div style="margin-top:40px; color:rgba(201,146,42,0.4); font-size:0.8rem; letter-spacing:4px; font-family:'Cinzel Decorative',serif;">✦ &nbsp; 2001 — 2026 &nbsp; ✦</div>
   </div>
@@ -889,7 +982,7 @@ footer {
       <div class="card-top-border"></div>
       <div class="card-body">
         <div class="card-icon">🕯️</div>
-        <div class="card-event-title">Day 1 · Akhand Ramayan Path</div>
+        <div class="card-event-title">Day 1 · Akhand Ramayan Paath</div>
         <p class="card-event-desc">A sacred spiritual ceremony invoking divine blessings upon 25 years of sacred togetherness. Family, devotion, and gratitude intertwined.</p>
         <div class="card-location-block">
           <div class="card-location-label">📍 Venue</div>
@@ -1639,7 +1732,7 @@ async function generateInvite(){
 
   // Details
   const details=[
-    ['📅  Day 1 — Akhand Ramayan Path','14th April 2026  |  Rajputana Mansion, Sector 2, Faridabad'],
+    ['📅  Day 1 — Akhand Ramayan Paath','14th April 2026  |  Rajputana Mansion, Sector 2, Faridabad'],
     ['🍽️  Day 2 — Anniversary Gala','15th April 2026  |  Indian Resort & Restaurant, Faridabad']
   ];
   let dy=eventTitleY + 72;
