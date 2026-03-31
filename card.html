@@ -1236,18 +1236,26 @@
         function openGoogleMaps(address) {
             console.log('Opening Google Maps for address:', address);
             const encodedAddress = encodeURIComponent(address);
-            const isMobile = /Mobile|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
-            
-            let mapsUrl;
-            if (isMobile) {
-                // Try to open Google Maps app on mobile
-                mapsUrl = `maps://search/?q=${encodedAddress}`;
-            } else {
-                // Open Google Maps web on desktop
-                mapsUrl = `https://maps.google.com/maps/search/${encodedAddress}`;
+            const ua = navigator.userAgent || '';
+            const isAndroid = /Android/i.test(ua);
+            const isIOS = /iPhone|iPad|iPod/i.test(ua);
+            const webUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
+            if (isAndroid) {
+                const appUrl = `intent://maps.google.com/?q=${encodedAddress}#Intent;scheme=https;package=com.google.android.apps.maps;end`;
+                window.location.href = appUrl;
+                setTimeout(() => { window.location.href = webUrl; }, 1200);
+                return;
             }
-            
-            window.open(mapsUrl, '_blank');
+
+            if (isIOS) {
+                const appUrl = `comgooglemaps://?q=${encodedAddress}`;
+                window.location.href = appUrl;
+                setTimeout(() => { window.location.href = webUrl; }, 1200);
+                return;
+            }
+
+            window.open(webUrl, '_blank');
         }
 
         // ============ GOOGLE DRIVE GALLERY INTEGRATION ============

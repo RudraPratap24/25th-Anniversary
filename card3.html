@@ -1466,8 +1466,26 @@ function closeLightbox(){ document.getElementById('lightbox').classList.remove('
 /* ─ MAPS ───────────────────────────────────── */
 function openMaps(addr){
   const enc=encodeURIComponent(addr);
-  const mob=/Mobile|Android|iPhone|iPad/.test(navigator.userAgent);
-  window.open(mob?`maps://search/?q=${enc}`:`https://maps.google.com/maps/search/${enc}`,'_blank');
+  const ua=navigator.userAgent || '';
+  const isAndroid=/Android/i.test(ua);
+  const isIOS=/iPhone|iPad|iPod/i.test(ua);
+  const webUrl=`https://www.google.com/maps/search/?api=1&query=${enc}`;
+
+  if(isAndroid){
+    const appUrl=`intent://maps.google.com/?q=${enc}#Intent;scheme=https;package=com.google.android.apps.maps;end`;
+    window.location.href=appUrl;
+    setTimeout(()=>{ window.location.href=webUrl; },1200);
+    return;
+  }
+
+  if(isIOS){
+    const appUrl=`comgooglemaps://?q=${enc}`;
+    window.location.href=appUrl;
+    setTimeout(()=>{ window.location.href=webUrl; },1200);
+    return;
+  }
+
+  window.open(webUrl,'_blank');
 }
 
 /* ─ EMOJI PICKER ───────────────────────────── */
